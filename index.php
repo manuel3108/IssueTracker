@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="settings.css">
+        <script type="text/JavaScript" src="main.js"></script>
+        <script type="text/JavaScript" src="data.js"></script>
+        <script type="text/JavaScript" src="settings.js"></script>
+        <title>Issue Tracker</title>
+    </head>
+
+    <body onload="initData();">
+        <div id="menue">
+            <span id="title">Issue Tracker</span>
+            <a href="#" id="back"><span>Zurück</span></a>
+            <div id="search">
+                <input id="input_search" type="text" name="search" placeholder="Search" oninput="searchBarChange();">
+            </div>
+        </div>
+
+        <div id="content">
+            <div id="add_remove_issue">
+                <a id="add_remove_issue_link" href="#" onclick="addIssue();">
+                    <div id="add_remove_issue_circle">
+                        <img id="add_remove_issue_image" src="res/plus.png">
+                    </div>
+                </a>
+            </div>
+
+
+            <div id="issueTable">Loading...</div>
+
+            <div id="createIssue">
+                <span id="createIssueTitle"></span>
+                <div class="left">
+                    <input id="input_issue_title" type="text" name="title" placeholder="Please enter the Title">
+
+                    <select id="selectPriority" name="priority"></select>
+                    <select id="selectTopic" name="topic"></select>
+                    <select id="selectState" name="state"></select> 
+                </div>
+                <div class="right">
+                    <textarea id="input_issue_description" name="description" placeholder="Please enter the Description"></textarea>
+                </div>
+            </div>
+
+            <div id="showIssue">
+                <span id="showIssueTitle"></span>
+                <div class="left">
+                    <span id="issueDscription"></span>                    
+                </div>
+                <div class="right">
+                    <select id="showIssue_selectPriority" name="priority"></select>
+                    <select id="showIssue_selectTopic" name="topic"></select>
+                    <select id="showIssue_selectState" name="state"></select>
+                </div>
+            </div>
+
+
+            <div id="settings">
+                <div id="settings_left"></div>
+                <div id="settings_center"></div>
+                <div id="settings_right"></div>
+            </div>
+        </div>
+
+        <div id="footer">
+            <div id="footer_settings"><a href="#" onclick="showSettings();" id="footer_settings_link"><img src="res/settings.png"></a></div>
+            <span id="text">powered by the <a href="#">Open-Source IssueTracker</a></span>
+        </div>
+    </body>
+</html>

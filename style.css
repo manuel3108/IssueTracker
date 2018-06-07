@@ -1,0 +1,437 @@
+body{
+	margin: 0;
+	background-color: #505050;
+	width: 100%;
+	height: 100%;
+
+	font-size: 1.2vmax;
+	color: white;
+	text-align: justify;
+}
+
+
+
+
+
+
+
+
+
+#menue{
+	z-index: 999;
+	position: fixed;
+	width: 100%;
+	height: 2.3vmax;
+	background-color: #909090;
+
+	box-shadow: 0px 4px 17px 0px rgba(35,35,35,1);
+}
+#menue #back{
+	position: absolute;
+	width: auto;
+	top: 0;
+	height: 2.3vmax;
+	background-color: #707070;
+}
+#menue #back{
+	text-decoration: none;
+	color: white;
+}
+#menue #back span{
+	z-index: 5;
+	padding-top: 0vmax;
+	padding-bottom: 0vmax;
+	padding-left: 0.7vmax;
+	padding-right: 0.7vmax;
+	width: 10%;
+	margin-right: 0;
+}
+#menue #title{
+	z-index: -1;
+	padding-top: 0.3vmax;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+}
+#menue #title_name{
+	padding-top: 0vmax;
+	border: 0px;
+	font-size: 2vmax;
+	background-color: #707070;
+	color: white;
+	text-align: center;
+	width: 20vmax;
+	padding: 0.3vmax;
+}
+#menue #back{
+	opacity: 0.5;
+}
+#menue #back.visible{
+	opacity: 1;
+	
+	animation-name: toVisible;
+    animation-duration: 1s;
+	
+}
+#menue #back.hidden{	
+	animation-name: toHidden;
+    animation-duration: 1s;
+	opacity: 0.5;
+	
+	pointer-events: none;
+   	cursor: default;
+}
+
+
+
+
+
+
+
+
+
+#footer{
+	z-index: 100;
+	position: fixed;
+	float: left;
+	width: 100%;
+	height: 2.3vmax;
+	background-color: #909090;
+
+	top: calc(100% - 2.3vmax);
+	box-shadow: 0px -4px 17px 0px rgba(35,35,35,1);
+}
+#footer #text{
+	z-index: -1;
+	padding-top: 0.0vmax;
+	position: fixed;
+	width: 100%;
+	text-align: center;
+	margin-top: -2.1vmax;
+}
+#footer #text a{
+	transition: all 0.5s ease-out;
+	text-decoration: none;
+	color: #303030;
+}
+#footer #text a:hover{
+	transition: all 0.5s ease-out;
+	text-decoration: none;
+	color: #fff;
+}
+#footer_settings{
+	width: 1.8vmax;
+	height: 1.8vmax;
+	padding: 0.25vmax;
+}
+
+#footer_settings img{
+	height: 100%;
+}
+
+
+
+
+
+
+
+
+
+#content{
+	position: relative;
+	height: 100%;
+}
+#content.short{
+	height: 60%;
+}
+#content a{
+	color: white;
+	text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+#issueTable{
+	padding-top: 3vmax;
+	padding-bottom: 3vmax;
+}
+#issueTable.short{
+	padding-bottom: 40%;
+}
+
+
+
+
+
+
+
+
+
+.issue{
+	transition: all 0.5s ease-out;
+	background-color: #707070;
+	border-radius: 0.7vmax;
+	margin: 0.5vmax;
+	
+	padding-top: 0.4vmax;
+	padding-bottom: 0.4vmax;
+	padding-left: 0.8vmax;
+	padding-right: 0.8vmax;
+}
+.issue:hover{
+	transition: all 0.5s ease-out;
+	background-color: #909090;
+}
+.issue.dark{
+	background-color: #353535;
+}
+.issue.dark span{
+	cursor: pointer;
+}
+
+.issue .id{
+	position: sticky;
+	left: 0%;
+}
+.issue .title{
+	position: sticky;
+	left: 5%;
+	cursor: default;
+}
+.issue .priority{
+	position: sticky;
+	left: 45%;
+}
+.issue .topic{
+	position: sticky;
+	left: 55%;
+}
+.issue .state{
+	position: sticky;
+	left: 65%;
+}
+.issue .created{
+	position: sticky;
+	left: 75%;
+}
+.issue .updated{
+	position: sticky;
+	left: 87.5%;
+}
+
+
+
+
+
+
+
+
+
+@keyframes add_remove_issue_hide {
+	from{
+		opacity: 1;
+	}
+	to{
+		opacity: 0;
+	}
+}
+@keyframes add_remove_issue_show {
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 0;
+	}
+}
+@keyframes add_remove_issue_green {
+	from{
+		background-color: red;
+	}
+	to{
+		background-color: green;
+	}
+}
+@keyframes add_remove_issue_red {
+	from{
+		background-color: green;
+	}
+	to{
+		background-color: red;
+	}
+}
+#add_remove_issue{
+	position: fixed;
+	z-index: 100;
+	top: calc(100% - 7.8vmax);
+	left: calc(100% - 5.5vmax);
+}
+#add_remove_issue_circle{
+	width: 5vmax;
+	height: 5vmax;
+	border-radius: 50%;
+	background-color: green;
+}
+#add_remove_issue_image{
+	width: 100%;
+	height: 100%;
+	font-size: 4vmax;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#add_remove_issue_circle.green{
+	transition: all 1s ease-out;
+	background-color: green;
+}
+#add_remove_issue_circle.red{
+	transition: all 1s ease-out;
+	background-color: red;
+}
+#add_remove_issue_circle.orange{
+	transition: all 1s ease-out;
+	background-color: orange;
+}
+
+
+
+
+
+
+
+
+
+#createIssue, #showIssue{
+	position: fixed;
+
+	background-color: #404040;
+	width: 100%;
+	height: 40%;
+	padding: 0.5vmax;
+
+	top: calc(100% - 2.2vmax);
+}
+#createIssue.visible, #showIssue.visible{
+	transition: all 1s ease-out;
+
+	top: calc(60% - 2.2vmax);
+
+	box-shadow: 0px -4px 17px 0px rgba(35,35,35,1);
+}
+#createIssue.hidden, #showIssue.hidden{
+	transition: all 1s ease-in;
+
+	top: calc(100% - 2.2vmax);
+
+	box-shadow: 0px -4px 17px 0px rgba(35,35,35,0);
+}
+
+#createIssueTitle, #showIssueTitle{
+	z-index: -1;
+	position: absolute;
+	width: 100%;
+	left: 0;
+	text-align: center;
+}
+
+#createIssue .left, #showIssue .left{
+	position: relative;
+	float: left;
+	width: calc(49% - 0.5vmax);
+	margin-top: 2.2vmax;
+
+	height: 85%;
+	max-height: 85%;
+}
+#createIssue .right, #showIssue .right{
+	position: absolute;
+	float: right;
+	width: calc(49% - 1vmax);
+	margin-right: 0.6vmax;
+	top: 2.7vmax; /*+0.3vmax border*/
+	left: calc(51% - 0.5vmax);
+
+	height: 55%;
+	max-height: 55%;
+}
+
+#createIssue input {
+    width: 100%;
+    padding: 5px 5px;
+
+    box-sizing: border-box;
+    font-size: 1vmax;
+    color: white;
+    background-color: #303030;
+
+    border: 2px solid #808080;
+    border-radius: 0.5vmax;
+
+    margin-bottom: 1vmax;
+}
+
+#createIssue select, #showIssue select {
+    width: 100%;
+    padding: 5px 5px;
+
+    box-sizing: border-box;
+    font-size: 1vmax;
+    color: white;
+    background-color: #303030;
+
+    border: 2px solid #808080;
+    border-radius: 0.5vmax;
+
+    margin-bottom: 1vmax;
+}
+
+#createIssue textarea {
+    width: 100%;
+    height: 95%;
+
+    resize: none;
+
+    padding: 5px 5px;
+
+    box-sizing: border-box;
+    font-size: 1vmax;
+    color: white;
+    background-color: #303030;
+
+    border: 2px solid #808080;
+    border-radius: 0.5vmax;
+
+    margin-bottom: 1vmax;
+}
+
+
+
+
+
+
+
+
+
+#search{
+	float: right;
+	margin-right: 0.15vmax;
+}
+#input_search{
+	width: 100%;
+    padding: 5px 5px;
+
+    box-sizing: border-box;
+    font-size: 1vmax;
+    color: white;
+    background-color: #303030;
+
+    border: 2px solid #808080;
+    border-radius: 0.5vmax;
+
+    margin-top: 0.15vmax;
+}
