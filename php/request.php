@@ -1,10 +1,8 @@
 <?php 
+	include 'db-data.php';
 
 	$query = $_POST['query'];
 
-	
-	//$db = mysqli_connect('localhost','root','', 'manuel-serret_it')or die("Fehler: ".mysqli_connect_error());
-	$db = mysqli_connect('localhost','manuel-serret_admin','Bplaced&yvnr8084', 'manuel-serret_IssueTracker')or die("Fehler: ".mysqli_connect_error());
 	mysqli_set_charset($db, 'utf8');
 
     if(!$db){
@@ -30,6 +28,5 @@
 	}
 
 
-	mysqli_close($db)
-
+	mysqli_close($db);
 ?>

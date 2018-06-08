@@ -113,7 +113,7 @@ function dbRequest(action, query){
 	        }
 	    }
 	};
-	xmlhttp.open("POST", "request.php", false);
+	xmlhttp.open("POST", "php/request.php", false);
 	xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	xmlhttp.send("query="+query); 
 }
