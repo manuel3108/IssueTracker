@@ -109,12 +109,12 @@ body{
 	text-align: center;
 	margin-top: -2.1vmax;
 }
-#footer #text a{
+#footer a{
 	transition: all 0.5s ease-out;
 	text-decoration: none;
 	color: #303030;
 }
-#footer #text a:hover{
+#footer a:hover{
 	transition: all 0.5s ease-out;
 	text-decoration: none;
 	color: #fff;
@@ -128,7 +128,16 @@ body{
 #footer_settings img{
 	height: 100%;
 }
-
+#additional_links{
+	z-index: 101;
+	position: fixed;
+	float: right;
+	top: calc(100% - 2vmax);
+	left: 82%;
+}
+#additional_links a{
+	margin-left: 1vmax;
+}
 
 
 

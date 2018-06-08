@@ -170,6 +170,12 @@
         <div id="footer">
             <div id="footer_settings"></div>
             <span id="text">powered by the <a href="https://github.com/manuel3108/IssueTracker">Open-Source IssueTracker</a></span>
+
+            <!-- You may need to comment in, if you need those to legal webpages-->
+            <!--<div id="additional_links">
+                <a href="html/privacy_policy.html">Privacy Policy</a>
+                <a href="html/legal_disclosure.html">Legal Disclosure</a>
+            </div>-->
         </div>
     </body>
 </html>
