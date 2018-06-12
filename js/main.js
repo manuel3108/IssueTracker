@@ -167,6 +167,9 @@ function addIssue() {
 
 	document.getElementById("issueTable").classList.add("short");
 
+	document.getElementById("input_issue_title").value = "";
+	document.getElementById("input_issue_description").value = "";
+
 	var highestid = 0;
 	for(var i = 0; i < issues.length; i++){
 		if(issues[i].id > highestid){
