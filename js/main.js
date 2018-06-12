@@ -277,6 +277,8 @@ function showIssueDetails(issueId){
 	document.getElementById("showIssueTitle").innerHTML = issue.title + " (#" + issue.id + ")";
 	document.getElementById("issueDscription").innerHTML = issue.description;
 
+	document.getElementById("issueDscription").innerHTML = document.getElementById("issueDscription").innerHTML.replace(new RegExp('\n', 'g'), "<br>")
+
 	document.getElementById("showIssue_selectPriority").innerHTML = "";
 	for(var i = 0; i < priorities.length; i++){
 		if(priorities[i].id == issue.priority.id){
