@@ -203,6 +203,10 @@ body{
 .issue.dark span{
 	cursor: pointer;
 }
+.issue.dark .title{
+	cursor: default;
+}
+
 
 .issue .id{
 	position: sticky;
@@ -211,7 +215,6 @@ body{
 .issue .title{
 	position: sticky;
 	left: 5%;
-	cursor: default;
 }
 .issue .priority{
 	position: sticky;
