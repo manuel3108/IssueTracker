@@ -110,7 +110,7 @@ function dbRequest(action, query){
 	        } else if(action === "insert") {
 	        	lastid = parseInt(this.responseText);
 	        } else {
-	        	console.log("server_response: " +this.responseText); //debig responses
+	        	//console.log("server_response: " +this.responseText); //debig responses
 	        }
 	    }
 	};
