@@ -52,7 +52,7 @@ function getDateAgo(time){
 	} else if(Math.floor(diff/1000/24/60/60/24) < 24){
 		out +=  Math.floor(diff/1000/24/60/60/24) + " houre(s) ago";
 	} else{
-		out +=  (Math.floor(diff/1000/24/60/60/24/365)+1) + " day(s) ago";
+		out +=  (Math.floor(diff/1000/24/60/60/24/24)) + " day(s) ago";
 	}
 
 	return out;
