@@ -3,9 +3,10 @@ var priorities = [];			//contains all priorities
 var topics = [];				//contains all topics
 var states = [];				//contains all states
 var currentShowIssue;			//the issue, which currently shows the issue details
-var orderDescending = true;		//describes the order, changed when clicking on an table head
+var orderDescending = false;	//describes the order, changed when clicking on an table head
 var searchText = "";			//the text, which is currently written in the searchbar
 var lastid = -1;				//the last id inserted into the database
+var lastOrderType = "id"
 
 //takes care for keypresses, to close alle the different panels when cklicking ESCAPE
 window.addEventListener("keydown", function(e){
@@ -121,7 +122,7 @@ function dbRequest(action, query){
 
 //called every 60 seconds, in order to refresh the table fields 'created' and 'updated'
 function showIssues(){
-	document.getElementById("issueTable").innerHTML = '<div class="issue dark"><span class="id" onclick="orderBy(\'id\')">ID</span><span class="title">Title</span><span class="priority" onclick="orderBy(\'priority\')">Prority</span><span class="topic" onclick="orderBy(\'topic\')">Topic</span><span class="state" onclick="orderBy(\'state\')">State</span><span class="created" onclick="orderBy(\'created\')">Created</span><span class="updated" onclick="orderBy(\'updated\')">Updated</span></div>';	
+	document.getElementById("issueTable").innerHTML = '<div class="issue dark"><span class="id" onclick="orderBy(\'id\', true)">ID</span><span class="title">Title</span><span class="priority" onclick="orderBy(\'priority\', true)">Prority</span><span class="topic" onclick="orderBy(\'topic\', true)">Topic</span><span class="state" onclick="orderBy(\'state\', true)">State</span><span class="created" onclick="orderBy(\'created\', true)">Created</span><span class="updated" onclick="orderBy(\'updated\', true)">Updated</span></div>';	
 
 	for(var i = 0; i < issues.length; i++){
 		if(isIssueVisible(issues[i])){
@@ -250,6 +251,7 @@ function onIssueAdd(){
 	dbRequest("insert", "INSERT INTO issue (title, description, priority, topic, state, created, updated) VALUES ('" + issue.title + "', '" + issue.description + "', " + issue.priority.id + ", " + issue.topic.id + ", " + issue.state.id + ", " + issue.created + ", " + issue.updated + ")");
 	issue.id = lastid;
 
+	orderBy(lastOrderType, false);
 	showIssues();
 }
 
@@ -359,6 +361,7 @@ function updateIssue(){
 	if(hasChanged){
 		currentShowIssue.updated = Date.now();
 		dbRequest("update", "UPDATE issue SET priority=" + currentShowIssue.priority.id + ", topic=" + currentShowIssue.topic.id + ", state=" + currentShowIssue.state.id + ", updated=" + currentShowIssue.updated + " WHERE id="+currentShowIssue.id);
+		orderBy(lastOrderType, false);
 		showIssues();
 	}
 
@@ -367,7 +370,9 @@ function updateIssue(){
 
 
 //order the function by the passed type, and update the view
-function orderBy(type){
+function orderBy(type, changeOrder){
+	if(changeOrder) orderDescending = !orderDescending;
+
 	if(type === "id"){
 		for(var i = 0; i < issues.length - 1; i++){
 			for(var j = 0; j < issues.length - 1; j++){
@@ -454,8 +459,9 @@ function orderBy(type){
 		}
 	}
 
+	lastOrderType = type;
+
 	showIssues();
-	orderDescending = !orderDescending;
 }
 
 
