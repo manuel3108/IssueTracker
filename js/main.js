@@ -139,15 +139,15 @@ function isIssueVisible(issue){
 			return true;
 		}
 	} else {
-		if(issue.title.includes(searchText)){
+		if(issue.title.toUpperCase().includes(searchText.toUpperCase())){
 			return true;
-		} else if(issue.priority.type.includes(searchText)){
+		} else if(issue.priority.type.toUpperCase().includes(searchText.toUpperCase())){
 			return true;
-		} else if(issue.topic.type.includes(searchText)){
+		} else if(issue.topic.type.toUpperCase().includes(searchText.toUpperCase())){
 			return true;
 		} else if(("#" + issue.id).includes(searchText)){
 			return true;
-		} else if(issue.state.type.includes(searchText)){
+		} else if(issue.state.type.toUpperCase().includes(searchText.toUpperCase())){
 			return true;
 		}
 	}
